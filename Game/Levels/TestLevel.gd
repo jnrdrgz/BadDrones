@@ -2,7 +2,7 @@ extends Node2D
 onready var argos_scn = preload("res://Game/Argos.tscn")
 
 func _ready():
-	pass # Replace with function body.
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _on_Spawner_timeout():
 	add_argo()

@@ -27,4 +27,5 @@ func _physics_process(delta):
 		var collider = raycast.get_collider()
 		print("shoot")
 		if raycast.is_colliding():
-			collider.kill()
+			if collider.has_method("kill"):
+				collider.kill()
