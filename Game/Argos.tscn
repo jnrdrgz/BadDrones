@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/argos_rigth.png" type="Texture" id=1]
 [ext_resource path="res://Game/Argos.gd" type="Script" id=2]
 [ext_resource path="res://Game/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 27.6666
@@ -33,4 +34,8 @@ position = Vector2( 149.246, 1.26564 )
 shape = SubResource( 2 )
 
 [node name="Explosion" parent="." instance=ExtResource( 3 )]
+
+[node name="Shield" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 4 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
