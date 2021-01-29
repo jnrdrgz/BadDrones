@@ -1,0 +1,115 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/bloque.png" type="Texture" id=2]
+[ext_resource path="res://Assets/piso.png" type="Texture" id=3]
+[ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 272.62, 973.592, 0, 0, 0, 0, 894.467, 962.901, 0, 0, 0, 0, 910.504, 684.94, 0, 0, 0, 0, 285.093, 693.849, 0, 0, 0, 0, 272.62, 973.592 )
+}
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 2662.71, -136.623, 0, 0, 0, 0, 1981.03, -137.883, 0, 0, 0, 0, 1982.48, -111.047, 0, 0, 0, 0, 2652.36, -117.397, 0, 0, 0, 0, 2662.71, -136.623 )
+}
+
+[node name="Floor1" instance=ExtResource( 1 )]
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+position = Vector2( 0, 6.72717 )
+texture = ExtResource( 3 )
+polygon = PoolVector2Array( -106.232, -274.429, -113.359, 1507.37, 3564.27, 1521.62, 3542.89, -295.81 )
+
+[node name="Path2D" type="Path2D" parent="Enemies" index="0"]
+curve = SubResource( 1 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" index="0"]
+position = Vector2( 272.62, 973.592 )
+rotation = -0.017249
+
+[node name="Argos" parent="Enemies/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
+position = Vector2( 5.8483, -3.9743 )
+rotation = 0.017249
+scale = Vector2( 1, 1 )
+
+[node name="Path2D2" type="Path2D" parent="Enemies" index="1"]
+position = Vector2( 200, 200 )
+curve = SubResource( 2 )
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2" index="0"]
+position = Vector2( 2662.13, -135.765 )
+
+[node name="Argos" parent="Enemies/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
+
+[node name="MainWall" type="StaticBody2D" parent="Walls" index="0"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/MainWall" index="0"]
+polygon = PoolVector2Array( -3.81559, 0.474777, 4.24268, 1299.54, 3421.43, 1342.26, 3389.4, 7.41736, 2921.83, 3.85552, 2962.25, 851.036, 3129.18, 1069.76, 325.181, 1055.76, 120.23, 1063.05, 138.285, -2.32831 )
+
+[node name="Wall" type="Polygon2D" parent="Walls/MainWall" index="1"]
+position = Vector2( 0, -3.5636 )
+color = Color( 1, 1, 0.964706, 1 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 2.20593, -5.94447, 136.511, -1.90363, 126.627, 1059.6, 3141.43, 1073.85, 2963.25, 867.162, 2920.87, -13.9167, 3389.03, -7.3096, 3414.3, 1332.67, 7.06934, 1303.88 )
+
+[node name="UpWall" type="StaticBody2D" parent="Walls" index="1"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/UpWall" index="0"]
+polygon = PoolVector2Array( -11.7707, -5.45282, 3390.86, 2.54718, 3382.86, -125.453, 0.90097, -117.453 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/UpWall" index="1"]
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 0.438637, -1.63244, -0.295227, -140.024, 3382.31, -120.996, 3391.82, -6.83258 )
+
+[node name="Wall1" type="StaticBody2D" parent="Walls" index="2"]
+position = Vector2( 116.736, 457.965 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall1" index="0"]
+scale = Vector2( 0.272322, 1.06219 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( -0.295227, -16.3462, 1652.46, -58.9391, 3382.31, -120.996, 3390.5, 138.107, -24.4314, 140.346 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall1" index="1"]
+position = Vector2( -224.492, 76.3274 )
+polygon = PoolVector2Array( 213.155, 87.0527, 1145.49, 79.9174, 1128.84, -195.979, 215.534, -81.8147 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" index="3"]
+position = Vector2( 1391.85, 251.432 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall2" index="0"]
+position = Vector2( 159.577, 262.682 )
+scale = Vector2( 0.295578, 1.11002 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( 266.624, 20.5641, -0.393555, -78.6645, 4754.55, 181.093, 4786.24, 320.199, 3294.89, 236.524 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall2" index="1"]
+position = Vector2( 210.036, 429.407 )
+polygon = PoolVector2Array( 1363.62, 189.332, 1354.88, 45.6059, -56.2125, -259.673, 41.2581, -132.537 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" index="4"]
+position = Vector2( 848.581, 866.541 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall4" index="0"]
+position = Vector2( 306.086, -125.653 )
+scale = Vector2( 0.272322, 1.40034 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( -495.979, -7.49945, 2036.08, 4.5105, 2110.19, 117.404, 604.855, 101.33, 90.0054, 237.262, -428.758, 231.257 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Walls/Wall4" index="1"]
+position = Vector2( 91.6846, -17.853 )
+polygon = PoolVector2Array( 778.961, 53.2416, 765.507, -108.211, 82.6992, -114.938, 94.7988, 213.51, 233.39, 219.18, 378.695, 33.0601 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" index="5"]
+position = Vector2( 1831.86, 565.721 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall3" index="0"]
+position = Vector2( 243.865, -337.418 )
+scale = Vector2( 0.259543, 0.866415 )
+texture = ExtResource( 2 )
+polygon = PoolVector2Array( -244.227, -114.725, 3288.8, -104.931, 3337.34, 145.187, -225.776, 142.279 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Walls/Wall3" index="1"]
+position = Vector2( -138.091, -236.947 )
+polygon = PoolVector2Array( 328.584, 24.1052, 321.155, -196.161, 1235.54, -181.306, 1244.43, 20.5416 )

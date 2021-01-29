@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Levels/TestLevel.gd" type="Script" id=3]
-[ext_resource path="res://Game/Engine.tscn" type="PackedScene" id=4]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -14,49 +13,10 @@ position = Vector2( 860.224, 403.673 )
 [node name="Argos" parent="Enemies" index="0" instance=ExtResource( 2 )]
 position = Vector2( 231.951, 119.039 )
 
-[node name="Aim" parent="." index="2"]
-position = Vector2( 727.145, 273.862 )
-
-[node name="Spawner" type="Timer" parent="." index="3"]
+[node name="Spawner" type="Timer" parent="." index="2"]
 wait_time = 4.0
 autostart = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." index="4"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-position = Vector2( 625.926, 414.841 )
-scale = Vector2( 1, 0.908654 )
-polygon = PoolVector2Array( -0.998901, -19.6812, 20.8644, 28.0363, 41.0459, 89.6353, 113.363, 87.9535, 148.681, 57.6812, 134.385, 19.8409, 88.1361, -4.3538 )
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D" index="1"]
-position = Vector2( -5.98572, 250.639 )
-color = Color( 0.835294, 0.243137, 0.243137, 1 )
-polygon = PoolVector2Array( 252.111, 40.8633, 338.723, 55.1585, 380.768, 74.4992, 396.745, 111.499, 365.632, 140.93, 292.474, 140.93, 272.292, 87.9535 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="." index="5"]
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D2" index="0"]
-position = Vector2( 504.387, 151.216 )
-scale = Vector2( 1, 0.908654 )
-polygon = PoolVector2Array( -0.998901, -19.6812, 20.8644, 28.0363, 41.0459, 89.6353, 113.363, 87.9535, 148.681, 57.6812, 134.385, 19.8409, 88.1361, -4.3538 )
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2" index="1"]
-position = Vector2( 250.297, 85.2363 )
-color = Color( 0.835294, 0.243137, 0.243137, 1 )
-polygon = PoolVector2Array( 252.111, 40.8633, 338.723, 55.1585, 380.768, 74.4992, 396.745, 111.499, 365.632, 140.93, 292.474, 140.93, 272.292, 87.9535 )
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="." index="6"]
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3" index="0"]
-position = Vector2( 248.349, 314.668 )
-scale = Vector2( 1, 0.908654 )
-polygon = PoolVector2Array( -0.998901, -19.6812, 20.8644, 28.0363, 41.0459, 89.6353, 113.363, 87.9535, 148.681, 57.6812, 134.385, 19.8409, 88.1361, -4.3538 )
-
-[node name="Polygon2D3" type="Polygon2D" parent="StaticBody2D3" index="1"]
-position = Vector2( 378.958, 358.924 )
-color = Color( 0.835294, 0.243137, 0.243137, 1 )
-polygon = PoolVector2Array( 252.111, 40.8633, 338.723, 55.1585, 380.768, 74.4992, 396.745, 111.499, 365.632, 140.93, 292.474, 140.93, 272.292, 87.9535 )
-
-[node name="Engine" parent="StaticBody2D3" index="2" instance=ExtResource( 4 )]
-position = Vector2( 518.655, 322.765 )
+[node name="Aim" parent="." index="4"]
+position = Vector2( 727.145, 273.862 )
 [connection signal="timeout" from="Spawner" to="." method="_on_Spawner_timeout"]
