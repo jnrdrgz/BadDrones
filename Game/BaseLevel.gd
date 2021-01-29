@@ -14,5 +14,9 @@ func go_to_next_level():
 
 func _physics_process(delta):
 	for enemy in enemies_node.get_children():
-		enemy.get_node("PathFollow2D").offset += delta*path_speed
+		if enemy.get_node("PathFollow2D").has_node("Argos"):
+			var e = enemy.get_node("PathFollow2D").get_node("Argos")
+			if e:
+				if not e.player_already_saw:
+					enemy.get_node("PathFollow2D").offset += delta*path_speed
 
