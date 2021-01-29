@@ -17,7 +17,7 @@ _data = {
 
 [node name="Floor1" instance=ExtResource( 1 )]
 
-[node name="Polygon2D" type="Polygon2D" parent="." index="0"]
+[node name="Floor" type="Polygon2D" parent="." index="0"]
 position = Vector2( 0, 6.72717 )
 texture = ExtResource( 3 )
 polygon = PoolVector2Array( -106.232, -274.429, -113.359, 1507.37, 3564.27, 1521.62, 3542.89, -295.81 )
@@ -33,12 +33,11 @@ curve = SubResource( 1 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" index="0"]
 position = Vector2( 272.62, 973.592 )
-rotation = -0.017249
+rotation = -0.0172335
 
 [node name="Argos" parent="Enemies/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
 position = Vector2( 5.8483, -3.9743 )
 rotation = 0.017249
-scale = Vector2( 1, 1 )
 
 [node name="Path2D2" type="Path2D" parent="Enemies" index="1"]
 position = Vector2( 200, 200 )
@@ -46,7 +45,7 @@ curve = SubResource( 2 )
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2" index="0"]
 position = Vector2( 2662.71, -136.623 )
-rotation = -3.13975
+rotation = -3.13974
 
 [node name="Argos" parent="Enemies/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
 

@@ -6,7 +6,7 @@ onready var raycast = $RayCast2D
 
 var killed = false
 
-var player_already_saw = true
+var player_already_saw = false
 
 ##node path for the ai 
 export (NodePath) var path
@@ -15,7 +15,6 @@ func _ready():
 	set_player() 
 	
 func _physics_process(delta):
-	
 	if player_already_saw:
 		if player == null:
 			print("p null")
@@ -39,7 +38,6 @@ func _physics_process(delta):
 		if coll.name == "Player":
 			get_tree().change_scene("res://Menu.tscn")
 
-
 func _process(delta):
 	if killed:
 		if $Explosion.finished:
@@ -51,11 +49,10 @@ func kill():
 	$Sprite.visible = false
 	$Explosion.play_anim("main_explosion")
 	killed = true
-	
 
 func set_player():
-	#change
-	player = get_parent().get_parent().get_parent().get_parent().get_node("Player")
-
-
-
+	player = get_tree().current_scene.get_node("Player")
+	
+func _on_Area2D_body_entered(body):
+	if body.is_in_group('player'):
+		player_already_saw = true
