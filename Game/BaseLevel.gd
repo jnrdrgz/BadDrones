@@ -19,4 +19,3 @@ func _physics_process(delta):
 			if e:
 				if not e.player_already_saw:
 					enemy.get_node("PathFollow2D").offset += delta*path_speed
-
