@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/bloque.png" type="Texture" id=1]
+
+[node name="Wall1" type="StaticBody2D" groups=[
+"walls",
+]]
+position = Vector2( 116.736, 442.091 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2( 0.272322, 1.06219 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( -0.295227, -16.3462, 1652.46, -58.9391, 3382.31, -120.996, 3390.5, 138.107, -24.4314, 140.346 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="."]
+position = Vector2( -224.492, 76.3274 )
+polygon = PoolVector2Array( 208.444, 88.8137, 1154.64, 78.7344, 1154.64, -211.047, 214.744, -95.1348 )

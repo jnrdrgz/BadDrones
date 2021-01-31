@@ -7,7 +7,7 @@
 radius = 8.37144
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 9.03548, 8.91444 )
+extents = Vector2( 6.84463, 6.1676 )
 
 [node name="EnemyBase" type="KinematicBody2D"]
 script = ExtResource( 2 )

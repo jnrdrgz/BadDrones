@@ -3,13 +3,19 @@ extends KinematicBody2D
 const PLAYER_MOVE_SPEED = 450
 
 onready var raycast = $RayCast2D
+onready var anim_player = $AnimationPlayer
 
 enum {GUN, LASER}
 
 var current_weapon = GUN
 
+var life = 100
+
+signal dead
+
 func _ready():
-	pass
+	$Laser.visible = true
+	connect("dead", self, "signal_handler")
 
 func _process(delta):
 	## la idea no es que sea asi pero para testear
@@ -19,6 +25,9 @@ func _process(delta):
 		current_weapon = LASER
 		$Laser.visible = true
 
+	if life < 0:
+		queue_free()
+		emit_signal("dead")
 	
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
@@ -38,12 +47,15 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("shoot"):
 		if current_weapon == GUN:
+			play_anim("Fire")
 			var collider = raycast.get_collider()
 			print("shoot")
 			if raycast.is_colliding():
 				if collider.has_method("receive_damage"):
 					collider.receive_damage(1)
-	
+				if collider.has_method("set_alreay_saw"):
+					collider.set_alreay_saw(true)
+					
 	if Input.is_action_pressed("shoot"):
 		if current_weapon == LASER:
 			$Laser.set_is_casting(true)
@@ -53,8 +65,15 @@ func _physics_process(delta):
 				if $Laser.is_colliding():
 					if collider.has_method("receive_damage"):
 						collider.receive_damage(1)
-	
+					if collider.has_method("set_alreay_saw"):
+						collider.set_alreay_saw(true)
+				
 	if Input.is_action_just_released("shoot"):
 		if current_weapon == LASER:
 			$Laser.set_is_casting(false)
 		
+
+func play_anim(anim):
+	if anim_player.current_animation == anim:
+		return
+	anim_player.play(anim)

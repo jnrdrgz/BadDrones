@@ -20,7 +20,9 @@ func _ready():
 func follow_player(delta):
 	var vec_to_player = player.global_position - global_position
 	vec_to_player = vec_to_player.normalized()
+
 	global_rotation = atan2(vec_to_player.y, vec_to_player.x)
+
 	var collision = move_and_collide(vec_to_player * MOVE_SPEED * delta)
 
 	if collision :

@@ -1,0 +1,310 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/FloorScene.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/Stair.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/bloque.png" type="Texture" id=4]
+[ext_resource path="res://Game/Enemy2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=6]
+
+[node name="BaseLevel" instance=ExtResource( 1 )]
+
+[node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
+position = Vector2( -1370.11, 809.179 )
+polygon = PoolVector2Array( -1147.51, -1152.29, -1218.39, 2104.91, 2065.58, 3599.47, 6296.91, 2603.86, 6296.91, -1084.41, 2042.96, -2147.89 )
+
+[node name="UpStair" parent="." index="1" instance=ExtResource( 3 )]
+position = Vector2( 837.016, 2543.86 )
+up = true
+floor_to_go = "res://Game/Levels/Floor3.tscn"
+
+[node name="DownStair" parent="." index="2" instance=ExtResource( 3 )]
+position = Vector2( 208.39, 230.739 )
+floor_to_go = "res://Game/Levels/Floor1.tscn"
+
+[node name="Enemy2" parent="Enemies" index="0" instance=ExtResource( 5 )]
+position = Vector2( 1299.15, 1194.5 )
+scale = Vector2( 4, 4 )
+
+[node name="Argos" parent="Enemies" index="1" instance=ExtResource( 6 )]
+position = Vector2( 1263.45, 502.91 )
+
+[node name="Argos2" parent="Enemies" index="2" instance=ExtResource( 6 )]
+position = Vector2( 670.695, 1265.56 )
+rotation = 0.642281
+
+[node name="Argos3" parent="Enemies" index="3" instance=ExtResource( 6 )]
+position = Vector2( 100.595, 812.5 )
+rotation = 1.5708
+
+[node name="Argos4" parent="Enemies" index="4" instance=ExtResource( 6 )]
+position = Vector2( -108.706, 1511.75 )
+
+[node name="Argos5" parent="Enemies" index="5" instance=ExtResource( 6 )]
+position = Vector2( 814.119, 2073.06 )
+
+[node name="Argos6" parent="Enemies" index="6" instance=ExtResource( 6 )]
+position = Vector2( 1584.72, 2139.66 )
+
+[node name="Argos7" parent="Enemies" index="7" instance=ExtResource( 6 )]
+position = Vector2( 557.25, 2515.44 )
+
+[node name="Argos8" parent="Enemies" index="8" instance=ExtResource( 6 )]
+position = Vector2( 1556.18, 2567.77 )
+
+[node name="Argos9" parent="Enemies" index="9" instance=ExtResource( 6 )]
+position = Vector2( 2201.07, 1685.3 )
+rotation = 1.34914
+
+[node name="Argos10" parent="Enemies" index="10" instance=ExtResource( 6 )]
+position = Vector2( 2229.35, 842.429 )
+rotation = 1.5708
+
+[node name="Argos11" parent="Enemies" index="11" instance=ExtResource( 6 )]
+position = Vector2( 2319.86, 242.803 )
+
+[node name="Wall13" type="StaticBody2D" parent="Walls" index="0"]
+position = Vector2( -1179.7, 337.721 )
+rotation = 0.199133
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall13" index="0"]
+position = Vector2( 60.3213, 138.456 )
+polygon = PoolVector2Array( 999.88, -617.82, 696.979, -175.403, 785.891, 373.142, 910.432, 936.285, 1105.78, 1448.15, 1382.99, 1712.44, 1810.72, 1800.62, 2369.24, 1770.75, 3223.44, 1578.95, 3715.56, 1324.35, 4117.69, 816.161, 3937.19, 17.9189, 3831.63, -601.338, 3524.84, -1063.52, 3039.57, -1159.7, 1547.46, -858.58, 1001.01, -618.75, 827.056, -937.576, 3072.77, -1379.92, 3681.24, -1250.37, 4017.97, -735.998, 4142.35, -23.4848, 4300.44, 759.87, 3841, 1506.23, 3313.77, 1808.72, 2296.38, 2057.61, 1529.66, 1929.1, 951.348, 1762.56, 775.036, 1536.69, 374.048, -234.372, 821.006, -934.635 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall13" index="1"]
+position = Vector2( 895.891, -445.441 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 295.1, 2053.59, 91.1896, 1547.7, -130.713, 394.137, 157.59, -12.6521, 659.756, -277.403, 2219.44, -592.158, 2690.87, -469.415, 2980.68, -4.9902, 3247.44, 1417.22, 2936.84, 1850.5, 2261.92, 2178.86, 1206.85, 2391.78, 564.493, 2308.09, 297.804, 2058.93, -106.101, 2330.89, -11.6843, 3078.32, 4019.15, 2316.69, 3262.96, -1430.62, -1071.5, -497.665, -119.749, 2348.1 )
+
+[node name="Wall" type="StaticBody2D" parent="Walls" index="1"]
+position = Vector2( -404.278, 671.451 )
+rotation = 0.199133
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall" index="0"]
+position = Vector2( 60.3213, 138.456 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall" index="1"]
+position = Vector2( 60.3936, 135.401 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls" index="2"]
+position = Vector2( 155.716, 999.484 )
+rotation = -0.176601
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall2" index="0"]
+position = Vector2( 771.916, 493.128 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall2" index="1"]
+position = Vector2( 773.62, 492.281 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall14" type="StaticBody2D" parent="Walls" index="3"]
+position = Vector2( -1452.45, 63.6537 )
+rotation = -0.176601
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall14" index="0"]
+position = Vector2( 771.916, 493.128 )
+polygon = PoolVector2Array( 310.811, 741.65, 303.008, 501.074, 523.095, 472.703, 553.382, 627.9, 574.39, 808.016, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall14" index="1"]
+position = Vector2( 773.62, 492.281 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 310.778, 733.132, 319.339, 818.326, 569.508, 813.129, 551.259, 631.089, 533.932, 470.957, 299.38, 499.163 )
+
+[node name="Wall15" type="StaticBody2D" parent="Walls" index="4"]
+position = Vector2( 1048.41, 963.295 )
+rotation = -0.176601
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall15" index="0"]
+position = Vector2( 771.916, 493.128 )
+polygon = PoolVector2Array( 310.811, 741.65, 303.008, 501.074, 523.095, 472.703, 553.382, 627.9, 574.39, 808.016, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall15" index="1"]
+position = Vector2( 773.62, 492.281 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 310.778, 733.132, 319.339, 818.326, 569.508, 813.129, 551.259, 631.089, 533.932, 470.957, 299.38, 499.163 )
+
+[node name="Wall16" type="StaticBody2D" parent="Walls" index="5"]
+position = Vector2( -1233.16, 1318.8 )
+rotation = -0.176601
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall16" index="0"]
+position = Vector2( 771.916, 493.128 )
+polygon = PoolVector2Array( 310.811, 741.65, 303.008, 501.074, 523.095, 472.703, 553.382, 627.9, 574.39, 808.016, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall16" index="1"]
+position = Vector2( 773.62, 492.281 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 310.778, 733.132, 319.339, 818.326, 569.508, 813.129, 551.259, 631.089, 533.932, 470.957, 299.38, 499.163 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls" index="6"]
+position = Vector2( 1114.58, 3031.65 )
+rotation = -1.63479
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall3" index="0"]
+position = Vector2( 1432.39, 372.931 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall3" index="1"]
+position = Vector2( 1428.16, 372.931 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls" index="7"]
+position = Vector2( -1073.19, 59.0308 )
+rotation = 0.503482
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall4" index="0"]
+position = Vector2( 2178.26, 389.882 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall4" index="1"]
+position = Vector2( 2169.78, 394.12 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall5" type="StaticBody2D" parent="Walls" index="8"]
+position = Vector2( 2603.21, 2406.99 )
+rotation = 1.5708
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall5" index="0"]
+position = Vector2( 2589.33, 50.8542 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall5" index="1"]
+position = Vector2( 2588.82, 50.8542 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall6" type="StaticBody2D" parent="Walls" index="9"]
+position = Vector2( 3729.89, 2376.85 )
+rotation = 3.62317
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall6" index="0"]
+position = Vector2( 2302.39, -258.737 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall6" index="1"]
+position = Vector2( 2299.74, -261.808 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall7" type="StaticBody2D" parent="Walls" index="10"]
+position = Vector2( 1569.59, 1727.37 )
+rotation = 3.25703
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/Wall7" index="0"]
+position = Vector2( -166.208, 719.883 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall7" index="1"]
+position = Vector2( -165.391, 721.724 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall8" type="StaticBody2D" parent="Walls" index="11"]
+position = Vector2( 1793.38, 1747.22 )
+rotation = 3.14159
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall8" index="0"]
+position = Vector2( 771.916, 493.128 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall8" index="1"]
+position = Vector2( 773.62, 492.281 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall9" type="StaticBody2D" parent="Walls" index="12"]
+position = Vector2( 1264.11, 2519.18 )
+rotation = 4.63925
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall9" index="0"]
+position = Vector2( 1432.39, 372.931 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall9" index="1"]
+position = Vector2( 1428.16, 372.931 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall10" type="StaticBody2D" parent="Walls" index="13"]
+position = Vector2( -1694.14, 605.206 )
+rotation = 0.0649735
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall10" index="0"]
+position = Vector2( 2178.26, 389.882 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall10" index="1"]
+position = Vector2( 2169.78, 394.12 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall11" type="StaticBody2D" parent="Walls" index="14"]
+position = Vector2( 174.175, -1761.99 )
+rotation = 1.1749
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall11" index="0"]
+position = Vector2( 2589.33, 50.8542 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall11" index="1"]
+position = Vector2( 2588.82, 50.8542 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )
+
+[node name="Wall12" type="StaticBody2D" parent="Walls" index="15"]
+position = Vector2( -1218.34, 1927.36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall12" index="0"]
+position = Vector2( 2302.39, -258.737 )
+polygon = PoolVector2Array( 325.543, 745.507, 566.277, 735.227, 731.553, 618.686, 783.467, 665.303, 590.645, 806.211, 319.193, 818.527 )
+
+[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall12" index="1"]
+position = Vector2( 2279.23, -273.838 )
+texture = ExtResource( 4 )
+polygon = PoolVector2Array( 327.824, 741.959, 319.339, 818.326, 580.603, 812.689, 781.787, 668.42, 729.461, 617.508, 577.934, 737.938 )

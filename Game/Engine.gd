@@ -36,6 +36,7 @@ func receive_damage(amount):
 		print("damaged health")
 		health -= amount
 		if(health <= 0):
+			print("killed")
 			kill()
 
 func remove_shield():

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/bloque.png" type="Texture" id=2]
 [ext_resource path="res://Assets/piso.png" type="Texture" id=3]
 [ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/Stair.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Game/WallPol.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -16,16 +18,27 @@ _data = {
 }
 
 [node name="Floor1" instance=ExtResource( 1 )]
+down_floor = "res://Game/Levels/TestLevel.tscn"
+up_floor = "res://Game/Levels/Floor3.tscn"
 
 [node name="Floor" type="Polygon2D" parent="." index="0"]
 position = Vector2( 0, 6.72717 )
 texture = ExtResource( 3 )
 polygon = PoolVector2Array( -106.232, -274.429, -113.359, 1507.37, 3564.27, 1521.62, 3542.89, -295.81 )
 
-[node name="Player" parent="." index="1"]
+[node name="StairUp" parent="." index="1" instance=ExtResource( 5 )]
+position = Vector2( 182.776, 52.2038 )
+up = true
+floor_to_go = "res://Game/Levels/Floor2.tscn"
+
+[node name="StairDown" parent="." index="2" instance=ExtResource( 5 )]
+position = Vector2( 2994.54, 1019.82 )
+floor_to_go = "res://Game/Levels/Floor3.tscn"
+
+[node name="Player" parent="." index="3"]
 position = Vector2( 300.902, 88.9032 )
 
-[node name="Camera2D" parent="Player" index="3"]
+[node name="Camera2D" parent="Player" index="6"]
 position = Vector2( -1.84726, 0.146667 )
 
 [node name="Path2D" type="Path2D" parent="Enemies" index="0"]
@@ -74,19 +87,7 @@ polygon = PoolVector2Array( 0.438637, -1.63244, -0.295227, -140.024, 3382.31, -1
 position = Vector2( -7.13525, -11.8921 )
 polygon = PoolVector2Array( -11.7707, -5.45282, 3390.86, 2.54718, 3382.86, -125.453, 0.90097, -117.453 )
 
-[node name="Wall1" type="StaticBody2D" parent="Walls" index="2" groups=[
-"walls",
-]]
-position = Vector2( 116.736, 457.965 )
-
-[node name="Polygon2D" type="Polygon2D" parent="Walls/Wall1" index="0"]
-scale = Vector2( 0.272322, 1.06219 )
-texture = ExtResource( 2 )
-polygon = PoolVector2Array( -0.295227, -16.3462, 1652.46, -58.9391, 3382.31, -120.996, 3390.5, 138.107, -24.4314, 140.346 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Walls/Wall1" index="1"]
-position = Vector2( -224.492, 76.3274 )
-polygon = PoolVector2Array( 213.155, 87.0527, 1145.49, 79.9174, 1128.84, -195.979, 215.534, -81.8147 )
+[node name="Wall1" parent="Walls" index="2" instance=ExtResource( 6 )]
 
 [node name="Wall2" type="StaticBody2D" parent="Walls" index="3" groups=[
 "walls",

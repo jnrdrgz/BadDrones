@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/piso.png" type="Texture" id=1]
+
+[node name="Floor" type="Polygon2D"]
+visible = false
+position = Vector2( 2.51984, 6.72717 )
+texture = ExtResource( 1 )
+polygon = PoolVector2Array( -106.232, -274.429, -113.359, 1507.37, 3564.27, 1521.62, 3542.89, -295.81 )
