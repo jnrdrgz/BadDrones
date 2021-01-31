@@ -43,16 +43,20 @@ func remove_shield():
 	$Shield.visible = false
 	shield_activated = false
 
+var MAX_PROJ = 50
+var projs = 0
 func spawn_enemy():
-	var enemy_instance = Argos.instance()
+	if projs < MAX_PROJ:
+		var enemy_instance = Argos.instance()
+		
+		var points = $SpawnPoints.get_children()
+		var point = points[randi() % points.size()]
+		#print(point.name)
+		
+		enemy_instance.global_position = point.global_position
+		get_tree().current_scene.add_child(enemy_instance)
+		projs += 1
 	
-	var points = $SpawnPoints.get_children()
-	var point = points[randi() % points.size()]
-	#print(point.name)
-	
-	enemy_instance.global_position = point.global_position
-	get_tree().current_scene.add_child(enemy_instance)
-
 func _on_EnemyCreationTimer_timeout():
 	print("enemy created")
 	spawn_enemy()

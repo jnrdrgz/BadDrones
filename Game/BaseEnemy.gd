@@ -9,7 +9,7 @@ var player_already_saw = false
 export var health = 3
 var can_move = true
 
-
+var rng = RandomNumberGenerator.new()
 
 
 #Shield variables
@@ -37,9 +37,22 @@ func follow_player(delta):
 					print("Wall collision")
 					kill()
 
+onready var col_scene = preload("res://Game/LaserCollectable.tscn") 
+var spawned_a_col = false
+func spawn_collect():
+	if not spawned_a_col:
+		var col_inst = col_scene.instance()
+		col_inst.scale = Vector2(0.6,0.6)
+		col_inst.global_position = global_position
+		get_tree().current_scene.add_child(col_inst)
+		spawned_a_col = true
 			
 func _process(delta):
 	if killed:
+		#rng.randomize()
+		var r = rng.randi_range(0,7)
+		if r == 4:
+			spawn_collect()	
 		if $Explosion.finished:
 			queue_free()
 
@@ -64,6 +77,8 @@ func kill():
 	$Sprite.visible = false
 	$Explosion.play_anim("main_explosion")
 	killed = true
+	
+	
 
 func set_player():
 	player = get_tree().current_scene.get_node("Player")
