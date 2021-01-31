@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Levels/TestLevel.gd" type="Script" id=3]
 [ext_resource path="res://Game/Enemy2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Game/LaserCollectable.tscn" type="PackedScene" id=5]
 
 [node name="TestLevel" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -24,4 +25,19 @@ position = Vector2( 727.145, 273.862 )
 [node name="Enemy2" parent="." index="5" instance=ExtResource( 4 )]
 position = Vector2( 517.534, 445.288 )
 scale = Vector2( 5, 5 )
+
+[node name="GeneralCollectable" parent="." index="8" instance=ExtResource( 5 )]
+position = Vector2( -96.8862, 324.91 )
+
+[node name="GeneralCollectable2" parent="." index="9" instance=ExtResource( 5 )]
+position = Vector2( -94.6413, 482.055 )
+
+[node name="GeneralCollectable3" parent="." index="10" instance=ExtResource( 5 )]
+position = Vector2( -99.1312, 172.255 )
+
+[node name="GeneralCollectable4" parent="." index="11" instance=ExtResource( 5 )]
+position = Vector2( 105.157, 199.194 )
+
+[node name="GeneralCollectable5" parent="." index="12" instance=ExtResource( 5 )]
+position = Vector2( 89.4426, 367.564 )
 [connection signal="timeout" from="Spawner" to="." method="_on_Spawner_timeout"]

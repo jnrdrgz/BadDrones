@@ -38,9 +38,14 @@ func _physics_process(delta):
 	pass
 
 func _process(delta):
-	if not $Player and not engine_instance.killed:
-		game_ended = true
-		$CanvasLayer/Dead.visible = true
+	if not $Player:
+		if engine_instance: 
+			if not engine_instance.killed:
+				game_ended = true
+				$CanvasLayer/Dead.visible = true
+		else:
+			game_ended = true
+			$CanvasLayer/Dead.visible = true
 	if engine_instance:
 		if engine_instance.killed:
 			game_ended = true

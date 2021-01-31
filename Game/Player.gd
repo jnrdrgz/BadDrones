@@ -9,7 +9,8 @@ enum {GUN, LASER}
 
 var current_weapon = GUN
 
-var life = 100
+var life = 1000
+var ammo = 100
 
 signal dead
 
@@ -46,10 +47,11 @@ func _physics_process(delta):
 	move_and_slide(direction, Vector2.UP)
 	
 	if Input.is_action_just_pressed("shoot"):
-		if current_weapon == GUN:
+		if current_weapon == GUN && ammo > 0:
 			play_anim("Fire")
 			var collider = raycast.get_collider()
 			print("shoot")
+			ammo -= 1
 			if raycast.is_colliding():
 				if collider.has_method("receive_damage"):
 					collider.receive_damage(1)

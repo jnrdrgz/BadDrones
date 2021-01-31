@@ -2,6 +2,9 @@ extends "res://Game/BaseEnemy.gd"
 
 onready var projectile_enemy_scene = preload("res://Game/Enemy3.tscn") 
 
+var enemies_spawned = 0
+var MAX_ENEMIES = 33
+
 func _ready():
 	._ready()
 
@@ -18,4 +21,5 @@ func spawn_enemy():
 
 func _on_EnemyCreationTimer_timeout():
 	print("enemy created")
-	spawn_enemy()	
+	if enemies_spawned < MAX_ENEMIES:
+		spawn_enemy()	

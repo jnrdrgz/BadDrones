@@ -28,7 +28,6 @@ down_floor = "res://Game/Levels/TestLevel.tscn"
 up_floor = "res://Game/Levels/Floor3.tscn"
 
 [node name="Floor" type="Polygon2D" parent="." index="0"]
-visible = false
 position = Vector2( 58.2598, 6.72717 )
 scale = Vector2( 1.51394, 1 )
 texture = ExtResource( 3 )

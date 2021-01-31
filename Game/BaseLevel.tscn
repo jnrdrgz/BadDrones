@@ -4,7 +4,7 @@
 [ext_resource path="res://Game/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Aim.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/dead.png" type="Texture" id=4]
-[ext_resource path="res://Assets/win.png" type="Texture" id=5]
+[ext_resource path="res://Assets/portadafinal-m.png" type="Texture" id=5]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,10 +31,12 @@ layer = 0
 
 [node name="Dead" type="Sprite" parent="CanvasLayer"]
 visible = false
-position = Vector2( 320.071, 280.516 )
+position = Vector2( 515.379, 288.373 )
+scale = Vector2( 2.779, 2.9361 )
 texture = ExtResource( 4 )
 
 [node name="Win" type="Sprite" parent="CanvasLayer"]
 visible = false
-position = Vector2( 320.071, 280.516 )
+position = Vector2( 512.351, 297.068 )
+scale = Vector2( 0.293029, 0.239724 )
 texture = ExtResource( 5 )

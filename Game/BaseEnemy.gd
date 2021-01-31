@@ -9,6 +9,9 @@ var player_already_saw = false
 export var health = 3
 var can_move = true
 
+
+
+
 #Shield variables
 var shield_activated = false
 var timer = null
