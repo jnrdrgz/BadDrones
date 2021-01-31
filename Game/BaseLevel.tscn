@@ -24,6 +24,8 @@ zoom = Vector2( 0.85, 0.85 )
 position = Vector2( 572.42, 213.317 )
 scale = Vector2( 0.1, 0.1 )
 
+[node name="PosibleEngineSpots" type="Node2D" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 

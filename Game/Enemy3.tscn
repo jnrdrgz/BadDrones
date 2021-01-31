@@ -10,4 +10,7 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 scale = Vector2( 0.25, 0.25 )
 texture = ExtResource( 2 )
+
+[node name="Explosion" parent="." index="2"]
+scale = Vector2( 0.5, 0.5 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

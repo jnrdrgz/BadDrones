@@ -18,20 +18,21 @@ func _ready():
 	set_player() 
 	
 func follow_player(delta):
-	var vec_to_player = player.global_position - global_position
-	vec_to_player = vec_to_player.normalized()
+	if player:
+		var vec_to_player = player.global_position - global_position
+		vec_to_player = vec_to_player.normalized()
 
-	global_rotation = atan2(vec_to_player.y, vec_to_player.x)
+		global_rotation = atan2(vec_to_player.y, vec_to_player.x)
 
-	var collision = move_and_collide(vec_to_player * MOVE_SPEED * delta)
+		var collision = move_and_collide(vec_to_player * MOVE_SPEED * delta)
 
-	if collision :
-		var obj_coll = collision.collider 
+		if collision :
+			var obj_coll = collision.collider 
 
-		if obj_coll:
-			if obj_coll.is_in_group("walls"):
-				print("Wall collision")
-				kill()
+			if obj_coll:
+				if obj_coll.is_in_group("walls"):
+					print("Wall collision")
+					kill()
 
 			
 func _process(delta):

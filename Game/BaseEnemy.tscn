@@ -4,10 +4,10 @@
 [ext_resource path="res://Game/BaseEnemy.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 8.37144
+radius = 7.03406
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 6.84463, 6.1676 )
+extents = Vector2( 7.42544, 7.42615 )
 
 [node name="EnemyBase" type="KinematicBody2D"]
 script = ExtResource( 2 )
