@@ -21,6 +21,5 @@ func spawn_enemy():
 	get_tree().current_scene.add_child(enemy_instance)
 
 func _on_EnemyCreationTimer_timeout():
-	print("enemy created")
 	if enemies_spawned < MAX_ENEMIES:
 		spawn_enemy()	

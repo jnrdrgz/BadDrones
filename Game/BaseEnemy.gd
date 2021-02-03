@@ -8,6 +8,7 @@ var player_already_saw = false
 
 export var health = 3
 var can_move = true
+var can_spawn_a_col = true
 
 var rng = RandomNumberGenerator.new()
 
@@ -35,11 +36,12 @@ func follow_player(delta):
 			if obj_coll:
 				if obj_coll.is_in_group("walls"):
 					kill()
+					can_spawn_a_col = false
 
 onready var col_scene = preload("res://Game/LaserCollectable.tscn") 
 var spawned_a_col = false
 func spawn_collect():
-	if not spawned_a_col:
+	if not spawned_a_col && can_spawn_a_col:
 		var col_inst = col_scene.instance()
 		col_inst.scale = Vector2(0.6,0.6)
 		col_inst.global_position = global_position

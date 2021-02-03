@@ -11,7 +11,6 @@ func receive_damage(amount):
 	kill()
 
 func kill():
-	print("kill")
 	can_move = false
 	$Explosion.visible = true
 	$Sprite.visible = false
@@ -22,4 +21,5 @@ func _on_Area2D_body_entered(body):
 	if body.is_in_group("player"):
 		body.life -= 10
 		print(body.life)
+		can_spawn_a_col = false
 		kill()
