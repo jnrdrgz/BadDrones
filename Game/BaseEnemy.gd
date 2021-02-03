@@ -34,7 +34,6 @@ func follow_player(delta):
 
 			if obj_coll:
 				if obj_coll.is_in_group("walls"):
-					print("Wall collision")
 					kill()
 
 onready var col_scene = preload("res://Game/LaserCollectable.tscn") 
@@ -67,7 +66,6 @@ func receive_damage(amount):
 		health -= amount
 
 func kill():
-	print("kill")
 	can_move = false
 	if($CollisionShape2D):
 		$CollisionShape2D.disabled = true

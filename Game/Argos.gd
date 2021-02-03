@@ -22,7 +22,6 @@ export (NodePath) var path
 
 onready var projectile_scene = preload("res://Game/ArgosProjectile.tscn") 
 
-
 func _ready():
 	set_player() 
 	
@@ -45,7 +44,6 @@ func _physics_process(delta):
 					var obj_coll = collision.collider 
 					if obj_coll:
 						if obj_coll.is_in_group("walls"):
-							print("Wall collision")
 							kill()
 			else:
 				shoot_to_player(vec_to_player, 1000, global_rotation)
@@ -68,7 +66,6 @@ func receive_damage(amount):
 		health -= amount
 
 func kill():
-	print("kill")
 	can_move = false	
 	$CollisionShape2D.disabled = true
 	$Area2D/CollisionShape2D.disabled = true

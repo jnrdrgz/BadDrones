@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Game/UI/LaserCounter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Game/UI/LifeCounter.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Game/UI/GunCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Game/UI/PlayerUI.gd" type="Script" id=4]
+[ext_resource path="res://Game/UI/LifeCounter.gd" type="Script" id=5]
+[ext_resource path="res://Game/UI/GunCounter.gd" type="Script" id=6]
+[ext_resource path="res://Game/UI/LaserCounter.gd" type="Script" id=7]
+
+[node name="PlayerUI" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 56.0
+margin_bottom = 60.0
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LifeCounter" parent="HBoxContainer" instance=ExtResource( 2 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 120.0
+margin_bottom = 50.0
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource( 5 )
+
+[node name="LaserCounter" parent="HBoxContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 160.0
+margin_top = 0.0
+margin_right = 280.0
+margin_bottom = 50.0
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource( 7 )
+
+[node name="GunCounter" parent="HBoxContainer" instance=ExtResource( 3 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 320.0
+margin_top = 0.0
+margin_right = 440.0
+margin_bottom = 50.0
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+script = ExtResource( 6 )
+[connection signal="life_changed" from="." to="HBoxContainer/LifeCounter" method="_on_PlayerUI_life_changed"]

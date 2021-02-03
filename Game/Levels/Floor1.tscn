@@ -162,12 +162,15 @@ position = Vector2( -1.16108, 5.53113 )
 scale = Vector2( 1.52635, 1.65351 )
 color = Color( 1, 1, 0.964706, 1 )
 texture = ExtResource( 2 )
-polygon = PoolVector2Array( 2.20593, -5.94447, 136.511, -1.90363, 126.627, 1059.6, 3141.43, 1073.85, 2963.25, 867.162, 2920.87, -13.9167, 3389.03, -7.3096, 3414.3, 1332.67, 7.06934, 1303.88 )
+polygon = PoolVector2Array( 2.20593, -5.94447, 137.525, -5.61299, 126.627, 1059.6, 3141.43, 1073.85, 2963.25, 867.162, 2920.87, -13.9167, 3389.03, -7.3096, 3414.3, 1332.67, 7.06934, 1303.88 )
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls/MainWall" index="1"]
 position = Vector2( -1.16108, 5.53113 )
 scale = Vector2( 1.52635, 1.65351 )
-polygon = PoolVector2Array( 2.20593, -5.94447, 136.511, -1.90363, 126.627, 1059.6, 3141.43, 1073.85, 2963.25, 867.162, 2920.87, -13.9167, 3389.03, -7.3096, 3414.3, 1332.67, 7.06934, 1303.88 )
+polygon = PoolVector2Array( 2.20593, -5.94447, 137.525, -5.61299, 126.627, 1059.6, 3141.43, 1073.85, 2963.25, 867.162, 2920.87, -13.9167, 3389.03, -7.3096, 3414.3, 1332.67, 7.06934, 1303.88 )
 __meta__ = {
 "_editor_description_": ""
 }
@@ -191,7 +194,12 @@ __meta__ = {
 }
 
 [node name="Wall1" parent="Walls" index="2" instance=ExtResource( 6 )]
-position = Vector2( 214.251, 483.443 )
+position = Vector2( 182.822, 483.443 )
+
+[node name="CollisionPolygon2D2" parent="Walls/Wall1" index="1"]
+position = Vector2( 0, 0 )
+scale = Vector2( 0.272322, 1.06219 )
+polygon = PoolVector2Array( -0.295227, -16.3462, 1652.46, -58.9391, 3382.31, -120.996, 3390.5, 138.107, -24.4314, 140.346 )
 
 [node name="Wall2" type="StaticBody2D" parent="Walls" index="3" groups=[
 "walls",
@@ -510,3 +518,5 @@ position = Vector2( 1927.89, 907.143 )
 
 [node name="NavigationPolygonInstance" type="NavigationPolygonInstance" parent="Navigation2D" index="0"]
 navpoly = SubResource( 3 )
+
+[editable path="Walls/Wall1"]

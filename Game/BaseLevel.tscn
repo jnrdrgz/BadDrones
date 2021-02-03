@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Game/BaseLevel.gd" type="Script" id=1]
 [ext_resource path="res://Game/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Game/Aim.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/dead.png" type="Texture" id=4]
 [ext_resource path="res://Assets/portadafinal-m.png" type="Texture" id=5]
+[ext_resource path="res://Game/UI/PlayerUI.tscn" type="PackedScene" id=6]
 
 [node name="BaseLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -29,6 +30,8 @@ scale = Vector2( 0.1, 0.1 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 0
 
+[node name="PlayerUI" parent="CanvasLayer" instance=ExtResource( 6 )]
+
 [node name="Dead" type="Sprite" parent="CanvasLayer"]
 visible = false
 position = Vector2( 515.379, 288.373 )
@@ -40,3 +43,4 @@ visible = false
 position = Vector2( 512.351, 297.068 )
 scale = Vector2( 0.293029, 0.239724 )
 texture = ExtResource( 5 )
+[connection signal="life_changed" from="Player" to="CanvasLayer/PlayerUI" method="_on_Player_life_changed"]

@@ -15,8 +15,8 @@ __meta__ = {
 }
 
 [node name="portada" type="Sprite" parent="."]
-position = Vector2( 516.103, 298.754 )
-scale = Vector2( 0.29173, 0.236107 )
+position = Vector2( 519.041, 302.466 )
+scale = Vector2( 0.295436, 0.24377 )
 texture = ExtResource( 4 )
 
 [node name="Menu" type="VBoxContainer" parent="."]

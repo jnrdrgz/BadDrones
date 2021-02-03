@@ -11,14 +11,23 @@ var current_weapon = GUN
 
 var life = 1000
 var ammo = 100
+var laser_ammo
 
 signal dead
 
+signal life_changed(life)
+func _on_Life_life_changed(life):
+	emit_signal("life_changed", life)
+
+
 func _ready():
+	laser_ammo = $Laser.ammo
 	$Laser.visible = true
 	connect("dead", self, "signal_handler")
 
 func _process(delta):
+	laser_ammo = $Laser.ammo
+	
 	## la idea no es que sea asi pero para testear
 	if Input.is_action_pressed("weapon1"):
 		current_weapon = GUN
