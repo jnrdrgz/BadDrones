@@ -19,6 +19,10 @@ config/name="Ggj"
 run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Sound="*res://Singletons/Sound.tscn"
+
 [debug]
 
 gdscript/warnings/enable=false

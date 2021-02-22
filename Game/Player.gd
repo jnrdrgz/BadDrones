@@ -58,8 +58,9 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("shoot"):
 		if current_weapon == GUN && ammo > 0:
 			play_anim("Fire")
+			Sound.play("gun_shot")
 			var collider = raycast.get_collider()
-			print("shoot")
+			#print("shoot")
 			ammo -= 1
 			if raycast.is_colliding():
 				if collider.has_method("receive_damage"):
@@ -72,6 +73,7 @@ func _physics_process(delta):
 			$Laser.set_is_casting(true)
 			var collider = $Laser.get_collider()
 			print("shoot")
+			
 			if collider:
 				if $Laser.is_colliding():
 					if collider.has_method("receive_damage"):

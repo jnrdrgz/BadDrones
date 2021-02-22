@@ -57,13 +57,14 @@ func set_alreay_saw(saw):
 	player_already_saw = saw
 
 func receive_damage(amount):
-	if(!shield_activated):
-		if(health <= 0):
-			kill()
-			return
-		print("damaged")
-		start_shield()
-		health -= amount
+	#if(!shield_activated):
+	#	print("damaged")
+	#	start_shield()
+	
+	if(health <= 0):
+		kill()
+		return
+	health -= amount
 
 func kill():
 	can_move = false	

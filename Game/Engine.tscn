@@ -36,19 +36,22 @@ shield = 5
 texture = ExtResource( 1 )
 vframes = 3
 hframes = 6
-frame = 2
+frame = 1
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/main_anim = SubResource( 1 )
 
 [node name="EngineCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 2 )
 
 [node name="ShieldCollision" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource( 3 )
 
 [node name="Shield" type="Sprite" parent="."]
+visible = false
 position = Vector2( -3.7458, -5.24408 )
 scale = Vector2( 1.05993, 1.05993 )
 texture = ExtResource( 3 )
@@ -75,5 +78,8 @@ position = Vector2( 0.749161, -120.614 )
 
 [node name="SpawnPoint4" type="Position2D" parent="SpawnPoints"]
 position = Vector2( -119.115, -1.52588e-05 )
+
+[node name="TeleportTimer" type="Timer" parent="."]
+wait_time = 10.0
 [connection signal="timeout" from="EnemyCreationTimer" to="." method="_on_EnemyCreationTimer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_ShootTimer_timeout"]

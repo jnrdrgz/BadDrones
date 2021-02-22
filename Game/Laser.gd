@@ -2,7 +2,7 @@ extends RayCast2D
 
 var is_casting = false
 var appeared = false
-var ammo = 9000
+var ammo = 0
 
 func _ready():
 	set_physics_process(false)
@@ -16,7 +16,7 @@ func _physics_process(delta):
 		cast_point = to_local(get_collision_point())
 	
 	ammo -= 1
-	print(ammo)
+	#print(ammo)
 	
 	$Line2D.points[1] = cast_point
 	$LaserParticlesInLaser.position = cast_point*0.25
@@ -40,13 +40,18 @@ func set_is_casting(cast):
 	set_physics_process(cast)
 
 func appear():
+	Sound.play("laser")
+	
 	var t = $Tween
 	t.stop_all()
 	t.interpolate_property($Line2D, "width", 0, 5.0, 0.2)
 	t.start()
 	appeared = true
+	
+	
 
 func disappear():
+	Sound.stop("laser")
 	var t = $Tween
 	t.stop_all()
 	t.interpolate_property($Line2D, "width", 5.0, 0.0, 0.1)

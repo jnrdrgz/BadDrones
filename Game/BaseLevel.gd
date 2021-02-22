@@ -15,9 +15,17 @@ var rng = RandomNumberGenerator.new()
 var game_ended
 var won
 var engine_instance = null 
-		
-# Called when the node enters the scene tree for the first time.
+
+var killed_enemies = 0
+	
+var total_enemies
+var unlock_stairs = false
+
 func _ready():
+	total_enemies = $Enemies.get_child_count()
+	print("total enemies ", total_enemies)
+	
+	Sound.play("music")
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	if has_the_engine:
 		engine_instance = engine_scene.instance()
@@ -38,6 +46,13 @@ func _physics_process(delta):
 	pass
 
 func _process(delta):
+	killed_enemies = total_enemies - $Enemies.get_child_count()
+	#if killed_enemies == total_enemies:
+	if	$Enemies.get_child_count() == 0:
+		unlock_stairs = true
+		get_node("StairUp").unlocked = true
+		get_node("StairDown").unlocked = true
+	
 	if not $Player:
 		if engine_instance: 
 			if not engine_instance.killed:
@@ -51,8 +66,8 @@ func _process(delta):
 			game_ended = true
 			#$Player.queue_free()
 			$CanvasLayer/Win.visible = true
-			
-
+	
+	
 func _input(event):
 	#Escape for quit
 	if (event is InputEventKey):
@@ -61,3 +76,9 @@ func _input(event):
 				get_tree().quit()
 			if event.scancode == KEY_ENTER && game_ended:
 				get_tree().change_scene("res://Menu.tscn")
+			if event.scancode == KEY_E:
+				print("killed enemies ", killed_enemies)
+				print("total enemies ", $Enemies.get_child_count())
+				#print("killed enemies ", killed_enemies)
+				
+			

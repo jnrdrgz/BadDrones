@@ -16,6 +16,8 @@ func _ready():
 	shield_activated = true
 	play_anim("main_anim")
 	
+	health = 100
+	
 func play_anim(anim):
 	if anim_player.current_animation == anim:
 		return
@@ -25,19 +27,20 @@ func _process(delta):
 	._process(delta)
 
 func receive_damage(amount):
-	if(shield_activated):
-		print("damaged shield")
-		shield -= amount
-		#TODO define boss status
-		$Shield.modulate.a = $Shield.modulate.a/2
-		if(shield <= 0):
-			remove_shield()
-	else:
-		print("damaged health")
-		health -= amount
-		if(health <= 0):
-			print("killed")
-			kill()
+	#if(shield_activated):
+	#	print("damaged shield")
+	#	shield -= amount
+	#	#TODO define boss status
+	#	$Shield.modulate.a = $Shield.modulate.a/2
+	#	if(shield <= 0):
+	#		remove_shield()
+	#else:
+	print("damaged health")
+	health -= amount
+	print(health)
+	if(health <= 0):
+		print("killed")
+		kill()
 
 func remove_shield():
 	$Shield.visible = false

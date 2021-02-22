@@ -5,3 +5,5 @@ func _ready():
 	has_the_engine = true
 	._ready()
 
+func _process(delta):
+	pass

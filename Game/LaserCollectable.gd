@@ -23,7 +23,7 @@ func _on_GeneralCollectable_body_entered(body):
 		if type_col == GUN:
 			body.ammo += 100	
 		if type_col == LASER:
-			body.get_node("Laser").ammo += 500	
+			body.get_node("Laser").ammo += 500
 		else:
 			body.life += 100	
 			

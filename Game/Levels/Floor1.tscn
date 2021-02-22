@@ -1,22 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/bloque.png" type="Texture" id=2]
-[ext_resource path="res://Assets/piso.png" type="Texture" id=3]
+[ext_resource path="res://Assets/floor.png" type="Texture" id=3]
 [ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Game/Stair.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/WallPol.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Enemy2.tscn" type="PackedScene" id=7]
-
-[sub_resource type="Curve2D" id=1]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 272.62, 973.592, 0, 0, 0, 0, 894.467, 962.901, 0, 0, 0, 0, 910.504, 684.94, 0, 0, 0, 0, 285.093, 693.849, 0, 0, 0, 0, 272.62, 973.592 )
-}
-
-[sub_resource type="Curve2D" id=2]
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 2662.71, -136.623, 0, 0, 0, 0, 1981.03, -137.883, 0, 0, 0, 0, 1982.48, -111.047, 0, 0, 0, 0, 2652.36, -117.397, 0, 0, 0, 0, 2662.71, -136.623 )
-}
 
 [sub_resource type="NavigationPolygon" id=3]
 vertices = PoolVector2Array( 1496.93, -867.594, 2469.91, -873.251, 1496.93, -827.996, 849.179, -804.649, 2552.59, 687.098, 2693.7, 818.129, -1712.18, 781.956, -851.594, -637.908, -1630.35, -542.586, -1529.55, -834.887, -703.043, -613.141, 2451.8, 294.002, 2272.19, 255.03, 1101.26, -167.513, -772.455, 306.753, 2471.96, -451.871, 2461.88, -99.0934, 1121.32, -351.078, 1536.53, -528.183, -1370.46, 440.237, -1386.48, 306.753, -735.08, 50.4635, -1701.5, 50.4635, -1674.81, -232.523, -703.043, -189.808, -1706.84, 472.273, -1477.25, 482.952 )
@@ -34,12 +24,12 @@ texture = ExtResource( 3 )
 polygon = PoolVector2Array( -196.232, -296.467, -224.224, 2881.92, 1724.03, 2822.59, 3526.73, 2636.13, 3542.89, -295.81 )
 
 [node name="StairUp" parent="." index="1" instance=ExtResource( 5 )]
-position = Vector2( 4589.57, 1653.36 )
+position = Vector2( 2977.08, 927.207 )
 up = true
 floor_to_go = "res://Game/Levels/Floor2.tscn"
 
 [node name="StairDown" parent="." index="2" instance=ExtResource( 5 )]
-position = Vector2( 2994.54, 1019.82 )
+position = Vector2( 4553.63, 1639.19 )
 floor_to_go = "res://Game/Levels/Floor3.tscn"
 
 [node name="Player" parent="." index="3"]
@@ -129,29 +119,13 @@ position = Vector2( 263.48, 1409.66 )
 [node name="Argos5" parent="Enemies" index="20" instance=ExtResource( 4 )]
 position = Vector2( 526.989, 1708.09 )
 
-[node name="Path2D" type="Path2D" parent="Enemies" index="21"]
-curve = SubResource( 1 )
+[node name="Argos21" parent="Enemies" index="21" instance=ExtResource( 4 )]
+position = Vector2( 278.399, 969.518 )
+rotation = 1.55158e-05
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D" index="0"]
-position = Vector2( 272.62, 973.592 )
-rotation = -0.0172335
-
-[node name="Argos" parent="Enemies/Path2D/PathFollow2D" index="0" instance=ExtResource( 4 )]
-position = Vector2( 5.8483, -3.9743 )
-rotation = 0.017249
-
-[node name="Path2D2" type="Path2D" parent="Enemies" index="22"]
-position = Vector2( 1697.11, 190.803 )
-curve = SubResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Enemies/Path2D2" index="0"]
-position = Vector2( 2662.71, -136.623 )
+[node name="Argos22" parent="Enemies" index="22" instance=ExtResource( 4 )]
+position = Vector2( 4359.82, 54.18 )
 rotation = -3.13974
-
-[node name="Argos" parent="Enemies/Path2D2/PathFollow2D" index="0" instance=ExtResource( 4 )]
 
 [node name="MainWall" type="StaticBody2D" parent="Walls" index="0" groups=[
 "walls",

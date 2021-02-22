@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Game/BaseLevel.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/bloque.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Game/Stair.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Game/Enemy2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Game/Argos.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/floor.png" type="Texture" id=8]
 
 [node name="Floor3" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -15,6 +16,8 @@ script = ExtResource( 4 )
 visible = true
 position = Vector2( 96.7005, 329.631 )
 scale = Vector2( 1.8, 1.5 )
+texture = ExtResource( 8 )
+polygon = PoolVector2Array( -95.7851, -657.676, -113.359, 1507.37, 3692.83, 1577.74, 3542.31, -620.571, 1702.39, -644.63 )
 
 [node name="DownStair" parent="." index="1" instance=ExtResource( 5 )]
 position = Vector2( 184.392, 1161.33 )
